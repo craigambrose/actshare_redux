@@ -1,10 +1,8 @@
 import React from 'react';
 import App from './containers/App';
-//import './assets/stylesheets/_main.scss';
-
 
 React.render(
-<App />,
+  <App />,
   document.getElementById('root')
 );
 
