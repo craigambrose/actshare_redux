@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import ActShareApp from './ActShareApp';
-import { createRedux } from 'redux';
+import { createStore } from 'redux';
 import { Provider } from 'redux/react';
-import * as stores from '../stores';
+import * as reducers from '../reducers';
 
-const redux = createRedux(stores);
+const store = createStore(reducers);
 
 export default class App extends Component {
   render() {
     return (
-      <Provider redux={redux}>
+      <Provider store={store}>
         {() => <ActShareApp />}
       </Provider>
     );
