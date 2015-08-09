@@ -1,0 +1,43 @@
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+          'top': 'bottom',
+          'right': 'left',
+          'bottom': 'top',
+          'left': 'right',
+          'ltr': 'rtl',
+          'rtl': 'ltr'
+  );
+
+  @each $direction in $directions {
+    $opposite-direction: map-get($direction-map, $direction);
+    @if $opposite-direction != null {
+      $opposite-directions: append($opposite-directions, #{$opposite-direction});
+    }
+    @else {
+      @warn "No opposite direction can be found for `#{$direction}`.";
+    }
+  }
+
+  @return $opposite-directions;
+}
+
+@mixin triangle($direction, $size, $color: currentcolor) {
+  @if not index(top right bottom left, $direction) {
+    @warn "Direction must be one of `top`, `right`, `bottom` or `left`; currently `#{$direction}`.";
+  }
+
+  @else {
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border: solid transparent;
+    border-color: rgba(0, 0, 0, 0);
+    border-#{opposite-direction($direction)}-color: $color;
+    #{opposite-direction($direction)}: 100%;
+    border-width: $size;
+    z-index: 3;
+  }
+}

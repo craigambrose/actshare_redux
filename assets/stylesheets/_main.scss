@@ -1,2 +1,10 @@
+@import 'mixins/triangle';
+
+@import 'aspects/typography';
+@import 'aspects/images';
+
+@import 'components/layout';
 @import 'components/user-nav';
-@import 'components/images';
+@import 'components/main-panel';
+@import 'components/act-participants';
+@import 'components/act-steps';

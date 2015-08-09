@@ -1,43 +1,9 @@
 $nav-bg: #660000
 $nav-color: white
-$nav-width: 350px
-
-#wrapper
-  padding-left: 0
-  -webkit-transition: all 0.5s ease
-  -moz-transition: all 0.5s ease
-  -o-transition: all 0.5s ease
-  transition: all 0.5s ease
-  &.toggled
-    padding-left: $nav-width
 
 #sidebar-wrapper
-  z-index: 1000
-  position: fixed
-  left: $nav-width
-  width: 0
-  height: 100%
-  margin-left: -$nav-width
-  overflow-y: auto
   background-color: $nav-bg
-  -webkit-transition: all 0.5s ease
-  -moz-transition: all 0.5s ease
-  -o-transition: all 0.5s ease
-  transition: all 0.5s ease
-
-#wrapper.toggled #sidebar-wrapper
-  width: $nav-width
-
-#page-content-wrapper
-  width: 100%
-  position: absolute
-  padding: 15px
-
-#wrapper.toggled #page-content-wrapper
-  position: absolute
-  margin-right: - $nav-width
-
-/* Sidebar Styles
+  border-right: 2px solid black
 
 .sidebar-nav
   position: absolute
@@ -78,24 +44,7 @@ $nav-width: 350px
     .user-name
       font-size: 140%
       line-height: 110%
+      margin-bottom: 5px
 
-
-@media (min-width: 768px)
-  #wrapper
-    padding-left: $nav-width
-    &.toggled
-      padding-left: 0
-
-  #sidebar-wrapper
-    width: $nav-width
-
-  #wrapper.toggled #sidebar-wrapper
-    width: 0
-
-  #page-content-wrapper
-    padding: 20px
-    position: relative
-
-  #wrapper.toggled #page-content-wrapper
-    position: relative
-    margin-right: 0
+    .user-username
+      line-height: 140%

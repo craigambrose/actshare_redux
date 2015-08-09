@@ -1,0 +1,55 @@
+$avatar-margin: 10px
+
+.act-steps
+  max-width: 800px
+
+.act-step
+  @include clearfix
+  margin-bottom: 20px
+  padding: 10px
+  background-color: black
+  border: 2px solid #333333
+  border-radius: 6px
+
+  &.incomplete-step
+    border-style: dashed
+
+  .actor-avatar
+    float: left
+    margin-right: $avatar-margin
+    margin-bottom: 5px
+
+  .step-details
+    margin-left: $large-avatar-size-desktop + $avatar-margin
+
+  .user-name
+    color: $brand-primary
+
+  //blockquote
+  //  font-size: 110%
+  //  color: lighten($text-color, 20%)
+  //  //font-family: "Courier New", monospace;
+  //
+  //blockquote
+  //  //background: #f9f9f9
+  //  border-left: 10px solid #ccc
+  //  margin: 1.5em 10px
+  //  padding: 0.5em 10px
+  //  quotes: "\201C""\201D""\2018""\2019"
+
+  //blockquote:before
+  //color: #ccc
+  //content: open-quote
+  //font-size: 4em
+  //line-height: 0.1em
+  //margin-right: 0.25em
+  //vertical-align: -0.4em
+
+  //.quoted-text p
+  //  display: inline
+
+
+@media (max-width: $screen-xs-max)
+  .act-step
+    .step-details
+      margin-left: $large-avatar-size-mobile + $avatar-margin

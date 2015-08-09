@@ -1,0 +1,61 @@
+$nav-width: 350px
+
+body
+  overflow-x: hidden
+
+#wrapper
+  padding-left: 0
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+  &.toggled
+    padding-left: $nav-width
+
+#sidebar-wrapper
+  z-index: 1000
+  position: fixed
+  left: $nav-width
+  width: 0
+  height: 100%
+  margin-left: -$nav-width
+  overflow-y: auto
+  overflow-x: hidden
+  -webkit-transition: all 0.5s ease
+  -moz-transition: all 0.5s ease
+  -o-transition: all 0.5s ease
+  transition: all 0.5s ease
+
+#wrapper.toggled #sidebar-wrapper
+  width: $nav-width
+
+#page-content-wrapper
+  width: 100%
+  position: absolute
+
+#wrapper.toggled #page-content-wrapper
+  position: absolute
+  margin-right: - $nav-width
+
+#page-content-wrapper > .container-fluid
+  margin-top: 20px
+  margin-bottom: 20px
+
+@media (min-width: 768px)
+  #wrapper
+    padding-left: $nav-width
+    &.toggled
+      padding-left: 0
+
+  #sidebar-wrapper
+    width: $nav-width
+
+  #wrapper.toggled #sidebar-wrapper
+    width: 0
+
+  #page-content-wrapper
+    position: relative
+
+  #wrapper.toggled #page-content-wrapper
+    position: relative
+    margin-right: 0

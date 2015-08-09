@@ -1,0 +1,46 @@
+#act-participants
+  background-color: #333
+
+  a.participant-link
+    display: inline-block
+    padding: 6px 6px
+
+    &.active
+      background-color: black
+      position: relative
+
+      &:after
+        @include triangle($direction: bottom, $size: 10px, $color: black)
+        margin-left: -10px
+        left: 50%
+
+
+  #participant-tabs
+    border-bottom: 2px solid black
+
+  $details-height: 36px
+
+  .participant-details
+    background-color: black
+    color: black
+    height: $details-height
+    line-height: $details-height
+
+    .participant-description
+      height: $details-height
+      float: left
+      background-color: #CC3333
+      display: block
+      padding-left: 10px
+      position: relative
+      width: calc(100% - 22px)
+      color: black
+
+      .glyphicon
+        float: right
+        line-height: $details-height
+
+      &:after
+        @include triangle($direction: right, $size: $details-height / 2, $color: #CC3333)
+        margin-top: -($details-height / 2)
+        top: 50%

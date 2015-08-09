@@ -8,7 +8,8 @@ export default class UserNav extends Component {
           <li className="sidebar-brand">
             <div className="sidebar-user">
               <img src="http://placekitten.com/g/75/75" width="75" height="75" className="avatar" />
-              <span className="user-name">Coder Jade</span>
+              <div className="user-name">Coder Jade</div>
+              <div className="user-username">@jade</div>
             </div>
           </li>
           <li>
