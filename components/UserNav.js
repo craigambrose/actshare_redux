@@ -1,4 +1,7 @@
 import React, { Component, PropTypes } from 'react';
+import Router from 'react-router';
+
+let Link = Router.Link;
 
 export default class UserNav extends Component {
   render() {
@@ -25,13 +28,10 @@ export default class UserNav extends Component {
             <a href="#">Events</a>
           </li>
           <li>
-            <a href="#">About</a>
-          </li>
-          <li>
             <a href="#">Services</a>
           </li>
           <li>
-            <a href="#">Contact</a>
+            <Link to="about">About Us</Link>
           </li>
         </ul>
       </div>
