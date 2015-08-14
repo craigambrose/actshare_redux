@@ -7,14 +7,18 @@ export default class ParticipantTabs extends Component {
       {
         id: 1,
         role: 'Dominant',
-        name: 'Grandmaster Bob',
-        avatarUrl: 'http://api.adorable.io/avatars/75/2.png'
+        user: {
+          name: 'Grandmaster Bob',
+          avatarUrl: 'http://api.adorable.io/avatars/75/2.png'
+        }
       },
       {
         id: 2,
         role: 'Submissive',
-        name: 'Coder Jade',
-        avatarUrl: 'http://placekitten.com/g/75/75'
+        user: {
+          name: 'Coder Jade',
+          avatarUrl: 'http://placekitten.com/g/75/75'
+        }
       }
     ],
     selectedKey: 2
@@ -43,7 +47,7 @@ export default class ParticipantTabs extends Component {
         </div>
         <div className="participant-details">
           <a href="#" className="participant-description">
-            {participant.role}: {participant.name}
+            {participant.role}: {participant.user.name}
             <i className="glyphicon glyphicon-user" />
           </a>
         </div>

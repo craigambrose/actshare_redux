@@ -10,7 +10,7 @@ export default class ParticipantTab extends Component {
 
     return (
       <a href="#" className={classNames}>
-        <img src={this.props.avatarUrl} className="avatar" />
+        <img src={this.props.user.avatarUrl} className="avatar" />
       </a>
     );
   }
