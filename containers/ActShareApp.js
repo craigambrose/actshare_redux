@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 //import Counter from '../components/Counter';
 import UserNav from '../components/UserNav';
-import Act from '../components/Act';
+import Act from '../components/act/Act';
 
 import * as CounterActions from '../actions/CounterActions';
 

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import ParticipantTabs from './participants/ParticipantTabs';
+import ParticipantTabs from 'participants/ParticipantTabs';
 
 export default class Act extends Component {
   render() {
