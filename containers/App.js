@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import ActShareApp from './ActShareApp';
-import { createStore } from 'redux';
-import { Provider } from 'redux/react';
+import { createStore, combineReducers } from 'redux';
+import { Provider } from 'react-redux';
 import * as reducers from '../reducers';
 
-const store = createStore(reducers);
+const reducer = combineReducers(reducers)
+const store = createStore(reducer);
 
 export default class App extends Component {
   render() {
