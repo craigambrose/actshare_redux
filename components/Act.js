@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
-import ActParticipants from '../components/ActParticipants';
+import ParticipantTabs from './participants/ParticipantTabs';
 
 export default class Act extends Component {
   render() {
     return(
       <div id="page-content-wrapper">
-        <ActParticipants />
+        <ParticipantTabs />
         <div className="container-fluid">
           <article className="act-steps">
 
