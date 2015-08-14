@@ -6,20 +6,21 @@ export default class ActParticipants extends Component {
     participants: [
       {
         id: 1,
-        avatar_url: 'http://api.adorable.io/avatars/75/2.png'
+        avatarUrl: 'http://api.adorable.io/avatars/75/2.png'
       },
       {
         id: 2,
-        avatar_url: 'http://placekitten.com/g/75/75'
+        avatarUrl: 'http://placekitten.com/g/75/75'
       }
-    ]
+    ],
+    selectedKey: 2
   };
 
   render() {
     let rows = [];
     console.log(this.props.participants);
     for (let participant of this.props.participants) {
-      rows.push((<ActParticipant key={participant.id} {...participant} />));
+      rows.push((<ActParticipant key={participant.id} selected={this.props.selectedKey == participant.id} {...participant} />));
     }
 
     return(
