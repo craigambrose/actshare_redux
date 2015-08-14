@@ -2,10 +2,34 @@ import React, { Component, PropTypes } from 'react';
 import ParticipantTabs from './participants/ParticipantTabs';
 
 export default class Act extends Component {
+  static defaultProps = {
+    participants: [
+      {
+        role: 'Dominant',
+        user: {
+          id: 1,
+          name: 'Grandmaster Bob',
+          avatarUrl: 'http://api.adorable.io/avatars/75/2.png'
+        }
+      },
+      {
+        role: 'Submissive',
+        user: {
+          id: 2,
+          name: 'Coder Jade',
+          avatarUrl: 'http://placekitten.com/g/75/75'
+        }
+      }
+    ],
+    steps: [
+
+    ]
+  };
+
   render() {
     return(
       <div id="page-content-wrapper">
-        <ParticipantTabs />
+        <ParticipantTabs {...this.props} />
         <div className="container-fluid">
           <article className="act-steps">
 

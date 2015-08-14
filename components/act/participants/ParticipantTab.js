@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 
 export default class ParticipantTab extends Component {
   render() {
-    console.log('props', this.props);
     let classNames = 'participant-link';
     if (this.props.selected) {
       classNames += ' active'
