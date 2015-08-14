@@ -1,16 +1,31 @@
 import React, { Component, PropTypes } from 'react';
+import ActParticipant from './ActParticipant'
 
 export default class ActParticipants extends Component {
+  static defaultProps = {
+    participants: [
+      {
+        id: 1,
+        avatar_url: 'http://api.adorable.io/avatars/75/2.png'
+      },
+      {
+        id: 2,
+        avatar_url: 'http://placekitten.com/g/75/75'
+      }
+    ]
+  };
+
   render() {
+    let rows = [];
+    console.log(this.props.participants);
+    for (let participant of this.props.participants) {
+      rows.push((<ActParticipant key={participant.id} {...participant} />));
+    }
+
     return(
       <div id="act-participants">
         <div id="participant-tabs">
-          <a href="#" className="participant-link">
-            <img src="http://api.adorable.io/avatars/75/2.png" className="avatar" />
-          </a>
-          <a href="#" className="participant-link active">
-            <img src="http://placekitten.com/g/75/75" className="avatar" />
-          </a>
+          { rows }
         </div>
         <div className="participant-details">
           <a href="#" className="participant-description">
