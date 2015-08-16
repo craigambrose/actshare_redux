@@ -17,13 +17,13 @@ export default class ParticipantTabs extends Component {
 
   render() {
     let rows = [];
-    console.log(this.props.participants);
     for (let participant of this.props.participants) {
       rows.push((<ParticipantTab key={participant.user.id} selected={this.props.selectedKey == participant.user.id} {...participant} />));
     }
     let participant = this.selectedParticipant();
 
     let details = null;
+
     if (participant) {
       details = (
         <div className="participant-details">

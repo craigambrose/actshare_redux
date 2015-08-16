@@ -8,10 +8,6 @@ import Act from '../components/act/Act';
 
 import * as CounterActions from '../actions/CounterActions';
 
-//@connect(state => ({
-//  counter: state.counter
-//}))
-
 export default class ActShareApp extends Component {
   render() {
     const { counter, dispatch } = this.props;

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ActShareApp from './ActShareApp';
 import { createStore, applyMiddleware, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
-import * as reducers from '../reducers';
+import reducer from '../reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import thunk from 'redux-thunk';
@@ -14,7 +14,7 @@ const finalCreateStore = compose(
   createStore
 );
 
-const reducer = combineReducers(reducers);
+
 const store = finalCreateStore(reducer);
 
 export default class App extends Component {
@@ -24,6 +24,9 @@ export default class App extends Component {
         <Provider store={store}>
           {() => <ActShareApp />}
         </Provider>
+        <DebugPanel top right bottom>
+          <DevTools store={store} monitor={LogMonitor} />
+        </DebugPanel>
         {/*<DebugPanel top right bottom>
           <DevTools store={store} monitor={LogMonitor} />
         </DebugPanel>*/}
