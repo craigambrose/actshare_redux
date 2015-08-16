@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './containers/App';
+import BrowserHistory from 'react-router/lib/BrowserHistory';
 
 ReactDOM.render(
-  <App />,
+  <App history={new BrowserHistory()} />,
   document.getElementById('root')
 );
 

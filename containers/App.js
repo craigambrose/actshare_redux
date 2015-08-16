@@ -6,6 +6,8 @@ import reducer from '../reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import thunk from 'redux-thunk';
+import { Router, Route } from 'react-router';
+import Act from '../components/act/Act';
 
 const finalCreateStore = compose(
   applyMiddleware(thunk),
@@ -22,7 +24,13 @@ export default class App extends Component {
     return (
       <div>
         <Provider store={store}>
-          {() => <ActShareApp />}
+          {() =>
+            <Router history={this.props.history}>
+              <Route path='/' component={ActShareApp}>
+                <Route path='/subs/:id' component={Act} />
+              </Route>
+            </Router>
+          }
         </Provider>
         <DebugPanel top right bottom>
           <DevTools store={store} monitor={LogMonitor} />

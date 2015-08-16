@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class UserNav extends Component {
   render() {
@@ -13,25 +14,16 @@ export default class UserNav extends Component {
             </div>
           </li>
           <li>
-            <a href="#">Dashboard</a>
+            <Link to="/">Home</Link>
           </li>
           <li>
-            <a href="#">Shortcuts</a>
+            <Link to="/subs/57b088734c5dd37cbd49">Unclaimed Sub</Link>
           </li>
           <li>
-            <a href="#">Overview</a>
+            <Link to="/subs/caf1a79f4f5360381d71">Claimed Sub</Link>
           </li>
           <li>
-            <a href="#">Events</a>
-          </li>
-          <li>
-            <a href="#">About</a>
-          </li>
-          <li>
-            <a href="#">Services</a>
-          </li>
-          <li>
-            <a href="#">Contact</a>
+            <Link to="/subs/e76629ebf3b2a3ccf388">Fulfilled Sub</Link>
           </li>
         </ul>
       </div>
