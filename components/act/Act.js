@@ -68,7 +68,12 @@ function mapStateToProps(state) {
   if (act) {
     act = {...act}
     act.steps = _.map((act.steps || []), function(step){
-      return state.entities.steps[step];
+      let stepEntity = state.entities.steps[step];
+      if (stepEntity) {
+        let newStep = {...stepEntity, actor: state.entities.users[stepEntity.actor]};
+        return newStep;
+      }
+      return null;
     });
   }
 
