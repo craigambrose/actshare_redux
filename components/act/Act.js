@@ -25,26 +25,21 @@ class Act extends Component {
     let act = this.props.act;
     let entities = this.props.entities;
     let participants = [];
-    let steps = [];
     let stepNodes = [];
 
     if (act) {
-      for (let participant of act.participants) {
-        participants.push({...participant, user: entities.users[participant.user]});
-      }
-      for (let step of act.steps) {
-        steps.push({...step, actor: entities.users[step.actor]});
-      }
-
-      stepNodes = _.map(steps, function(step){
-        return (<ActStep {...step} key={step.id} />);
+      //for (let participant of act.participants) {
+      //  participants.push({...participant, user: entities.users[participant.user]});
+      //}
+     stepNodes = _.map((act.steps || []), function(step){
+        return (<ActStep key={step.id} {...step} />);
       });
     }
 
+    //<ParticipantTabs {...{participants: participants}} />
 
     return(
       <div id="page-content-wrapper">
-        <ParticipantTabs {...{participants: participants}} />
         <div className="container-fluid">
           <article className="act-steps">
             { stepNodes }
@@ -69,14 +64,18 @@ class Act extends Component {
 }
 
 function mapStateToProps(state) {
+  let act = (state.currentAct ? state.entities.acts[state.currentAct] : null);
+  if (act) {
+    act = {...act}
+    act.steps = _.map((act.steps || []), function(step){
+      return state.entities.steps[step];
+    });
+  }
+
   return {
     entities: state.entities,
-    act: state.currentAct
+    act: act
   };
-}
-
-function mergeProps(stateProps, dispatchProps, ownProps) {
-
 }
 
 export default connect(

@@ -56,13 +56,26 @@ function callApi(endpoint, schema) {
 
 // Read more about Normalizr: https://github.com/gaearon/normalizr
 
+const stepSchema = new Schema('steps', {
+  idAttribute: 'id'
+});
+
 const actSchema = new Schema('acts', {
   idAttribute: 'id'
 });
 
-//const repoSchema = new Schema('repos', {
-//  idAttribute: 'fullName'
-//});
+const userSchema = new Schema('users', {
+  idAttribute: 'id'
+});
+
+actSchema.define({
+  steps: arrayOf(stepSchema)
+});
+
+stepSchema.define({
+  actor: userSchema
+});
+
 //
 //repoSchema.define({
 //  owner: userSchema
@@ -72,7 +85,8 @@ const actSchema = new Schema('acts', {
  * Schemas for Github API responses.
  */
 export const Schemas = {
-  ACT: actSchema
+  ACT: actSchema,
+  USER: userSchema
 };
 
 /**
