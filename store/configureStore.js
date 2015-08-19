@@ -1,11 +1,9 @@
-import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import apiMiddleware from '../middleware/api';
 //import loggerMiddleware from 'redux-logger';
-import * as reducers from '../reducers';
+import reducer from '../reducers/index';
 import { devTools, persistState } from 'redux-devtools';
-
-const reducer = combineReducers(reducers);
 
 let middleware = [ thunkMiddleware, apiMiddleware ];
 

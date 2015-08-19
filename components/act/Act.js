@@ -23,43 +23,51 @@ class Act extends Component {
 
   render() {
     let act = this.props.act;
-    let entities = this.props.entities;
-    let participants = [];
-    let stepNodes = [];
 
     if (act) {
-      //for (let participant of act.participants) {
-      //  participants.push({...participant, user: entities.users[participant.user]});
-      //}
-     stepNodes = _.map((act.steps || []), function(step){
+      let stepNodes = [];
+      let nextStep = null;
+
+      stepNodes = _.map((act.steps || []), function(step){
         return (<ActStep key={step.id} {...step} />);
       });
+
+      // Temporary hack
+      if (act.steps.length == 2) {
+        nextStep = (
+          <section className="act-step incomplete-step">
+            <img src="http://api.adorable.io/avatars/75/2.png" className="avatar actor-avatar" />
+            <div className="step-details">
+              <p className="step-description">
+                Waiting on you to to upload a photo...
+              </p>
+              <div className="step-forms">
+                <input type="file" />
+              </div>
+            </div>
+          </section>
+        );
+      }
+
+      return(
+        <div id="page-content-wrapper">
+          <ParticipantTabs {...{participants: act.participants}} />
+
+          <div className="container-fluid">
+            <article className="act-steps">
+              { stepNodes }
+              { nextStep }
+            </article>
+          </div>
+        </div>
+      );
+    } else {
+      return (
+        <div id="page-content-wrapper">
+        </div>
+      );
     }
 
-    //<ParticipantTabs {...{participants: participants}} />
-
-    return(
-      <div id="page-content-wrapper">
-        <div className="container-fluid">
-          <article className="act-steps">
-            { stepNodes }
-
-            <section className="act-step incomplete-step">
-              <img src="http://placekitten.com/g/75/75" className="avatar actor-avatar" />
-              <div className="step-details">
-                <p className="step-description">
-                  Waiting on you to to upload a photo...
-                </p>
-                <div className="step-forms">
-                  <input type="file" />
-                </div>
-              </div>
-            </section>
-
-          </article>
-        </div>
-      </div>
-    );
   }
 }
 

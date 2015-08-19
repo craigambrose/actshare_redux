@@ -1,14 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
+import { loadUserSession } from '../actions/userSession';
+import { connect } from 'react-redux';
 
-export default class UserNav extends Component {
+class UserNav extends Component {
+  componentWillMount() {
+    this.props.loadUserSession();
+  }
+
   render() {
     return(
       <div id="sidebar-wrapper">
         <ul className="sidebar-nav">
           <li className="sidebar-brand">
             <div className="sidebar-user">
-              <img src="http://placekitten.com/g/75/75" width="75" height="75" className="avatar" />
+              <img src="http://api.adorable.io/avatars/75/2.png" width="75" height="75" className="avatar" />
               <div className="user-name">Coder Jade</div>
               <div className="user-username">@jade</div>
             </div>
@@ -30,3 +36,8 @@ export default class UserNav extends Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { loadUserSession }
+)(UserNav);

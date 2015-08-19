@@ -40,6 +40,9 @@ function callApi(endpoint, schema) {
 
       const camelizedJson = camelizeKeys(json);
       const nextPageUrl = getNextPageUrl(response) || undefined;
+      console.log('response', response);
+      console.log('json', json);
+      console.log('camelizedJson', camelizedJson);
 
       return Object.assign({},
         normalize(camelizedJson, schema),
