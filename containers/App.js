@@ -22,9 +22,9 @@ export default class App extends Component {
             </Router>
           }
         </Provider>
-        <DebugPanel top right bottom>
+        {/*<DebugPanel top right bottom>
           <DevTools store={store} monitor={LogMonitor} />
-        </DebugPanel>
+        </DebugPanel>*/}
       </div>
     );
   }

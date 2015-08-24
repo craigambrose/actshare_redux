@@ -51,7 +51,7 @@ class Act extends Component {
 
       return(
         <div id="page-content-wrapper">
-          <ParticipantTabs {...{participants: act.participants}} />
+          {/*<ParticipantTabs {...{participants: act.participants}} />*/}
 
           <div className="container-fluid">
             <article className="act-steps">

@@ -10,7 +10,7 @@ export default class Claim extends Component {
             <span className="user-name">{this.props.actor.name}</span> has completed this demand:
           </p>
           <div className="step-attachments">
-            <img src={this.props.photoUrl} className="act-photo img-responsive" />
+            <img src="http://placekitten.com/g/700/400" className="act-photo img-responsive" />
           </div>
         </div>
       </section>
